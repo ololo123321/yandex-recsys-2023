@@ -2,11 +2,13 @@
 
 Re-train whole ensemble (train each model on 3 splits of 10-folds kf):
 ```bash
+cd bin
 bash re_train_ensemble.sh
 ```
 
 Make final submission (inference of each model + blending):
 ```bash
+cd bin
 bash predict_ensemble.sh
 ```
 
