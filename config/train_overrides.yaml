@@ -1,0 +1,19 @@
+defaults:
+  - _self_
+  - hydra: default
+
+training_args:
+  _target_: transformers.TrainingArguments
+  output_dir: ???
+
+trainer_params:
+  save_weights_only: true
+  loss_type: asl  # может не быть в старом конфиге, но он во всех экспериментах фактически был таким
+  reduction: sum  # аналогично
+  legacy_optimizer: true
+  use_dataloader: true  # пофиксил баг с утечкой памяти, поэтому можно так юзать
+
+train_data_path: ???
+valid_data_path: ???
+embeddings_dir: ???
+model_dir: ???

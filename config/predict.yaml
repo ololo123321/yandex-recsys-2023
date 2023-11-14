@@ -1,0 +1,22 @@
+defaults:
+  - _self_
+  - hydra: default
+
+dataset:
+  _target_: src.datasets.InferenceDataset
+  data: null
+
+collator:
+  _target_: src.collators.InferenceCollator
+  max_length: 150  # TODO: sync с треин конфигом
+
+num_classes: 256  # TODO: sync с треин конфигом
+embeddings_dir: ???
+data_path: ???
+output_path: ???
+checkpoint_path: ???
+device: cuda
+batch_size: 512
+num_workers: 4
+num_examples: null
+output_format: csv

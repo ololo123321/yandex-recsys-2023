@@ -1,0 +1,87 @@
+training_args:
+  _target_: transformers.TrainingArguments
+  do_train: true
+  do_eval: true
+  output_dir: /home/vitaly/yars/models/fold3/resnet_2convblockversion_256midchannels_8-5-3kernels_0.0blockdropout_0gammapos_2gammaneg_0.1clip
+  num_train_epochs: 200
+  max_steps: -1
+  evaluation_strategy: epoch
+  eval_steps: 5000
+  per_device_train_batch_size: 256
+  per_device_eval_batch_size: 32
+  gradient_accumulation_steps: 1
+  learning_rate: 0.0001
+  lr_scheduler_type: constant
+  warmup_ratio: 0.01
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  save_strategy: ${training_args.evaluation_strategy}
+  save_steps: ${training_args.eval_steps}
+  save_total_limit: 3
+  save_on_each_node: false
+  load_best_model_at_end: true
+  logging_strategy: steps
+  logging_steps: 100
+  fp16: true
+  half_precision_backend: auto
+  fp16_opt_level: O1
+  fp16_full_eval: false
+  dataloader_num_workers: 8
+  dataloader_pin_memory: true
+  no_cuda: false
+  seed: 42
+  disable_tqdm: false
+  metric_for_best_model: map
+  greater_is_better: true
+  sharded_ddp: false
+  skip_memory_metrics: true
+  label_smoothing_factor: 0.0
+  ddp_find_unused_parameters: false
+model:
+  _target_: src.models_custom.ResNetBaseline
+  conv_block_version: 2
+  in_channels: 768
+  mid_channels: 256
+  kernels: 8-5-3
+  num_classes: 256
+  conv_dropout: 0.0
+  block_dropout: 0.0
+training_dataset:
+  _target_: src.datasets.TrainingDataset
+  data: null
+  p_catmix: 0.0
+  p_cutmix: 0.0
+  cache_emb: false
+valid_dataset:
+  _target_: src.datasets.TrainingDataset
+  data: null
+collator:
+  _target_: src.collators.TrainingCollator
+  num_classes: 256
+  max_length: 150
+trainer_cls:
+  _target_: hydra.utils.get_class
+  path: src.trainers.TrainerCustom
+trainer_params:
+  save_weights_only: true
+  pos_weight_path: null
+  gamma: 1.0
+  alpha: -1.0
+  max_epochs_wo_improvement: 20
+  reduce_lr_patience: 5
+  reduce_lr_factor: 0.5
+  sampler: v1
+  loss_type: asl
+  gamma_neg: 1
+  gamma_pos: 0
+  clip: 0.1
+  reduction: sum
+  use_dataloader: true
+  legacy_optimizer: true
+train_data_path: /home/vitaly/yars/data/train_wo_valid_fold3.csv
+valid_data_path: /home/vitaly/yars/data/valid_fold3.csv
+embeddings_dir: /home/vitaly/yars/track_embeddings
+num_train_examples: null
+num_valid_examples: null
+checkpoint_path: null
+model_dir: /home/vitaly/yars/models/resnet_2convblockversion_256midchannels_8-5-3kernels_0.0blockdropout_0gammapos_2gammaneg_0.1clip

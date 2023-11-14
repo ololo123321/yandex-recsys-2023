@@ -1,0 +1,4 @@
+# @package _global_
+trainer_cls:
+  _target_: hydra.utils.get_class
+  path: src.trainers.TrainerV1

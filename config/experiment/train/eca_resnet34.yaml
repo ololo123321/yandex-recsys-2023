@@ -1,0 +1,8 @@
+# @package _global_
+model:
+  _target_: src.ecanet.eca_resnet34
+  input_dim: 768
+  k_size: [31, 17, 11, 5]
+  num_classes: 256
+  add_channel_dropout: false
+  p_channel_dropout: 0.1

@@ -1,0 +1,9 @@
+# @package _global_
+model:
+  _target_: src.models_custom.RNNModel
+  input_dim: 768
+  hidden_dim: 512
+  cell_type: gru
+  num_layers: 2
+  num_classes: 256
+  dropout: 0.5

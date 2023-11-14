@@ -1,0 +1,5 @@
+# @package _global_
+training_args:
+  num_train_epochs: 2
+num_train_examples: 100
+num_valid_examples: 100

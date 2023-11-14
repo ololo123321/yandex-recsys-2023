@@ -1,0 +1,10 @@
+_target_: src.models.EncoderOnly
+input_dim: 768
+num_classes: 256
+add_pos_emb: false
+pooling_type: mean
+attn_pooler_v2_hidden: 128
+attn_pooler_v2_dropout: 0.3
+extend_attn_mask: true
+add_channel_dropout: false  # для обратной совместимости
+p_channel_dropout: 0.1

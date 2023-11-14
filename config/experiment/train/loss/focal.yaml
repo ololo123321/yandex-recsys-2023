@@ -1,0 +1,8 @@
+# @package _global_
+trainer_cls:
+  _target_: hydra.utils.get_class
+  path: src.trainers.TrainerV2
+
+trainer_params:
+  gamma: 2.0
+  alpha: 0.25

@@ -1,0 +1,12 @@
+# @package _global_
+model:
+  _target_: src.models_custom.TransformerEncoderCustomV3
+  num_experts: 3
+  num_layers: 1
+  num_heads: 12
+  d_model: 384
+  dff: 1536
+  input_dim: 768
+  num_classes: 256
+  dropout: 0.1
+  learnable_norm: false

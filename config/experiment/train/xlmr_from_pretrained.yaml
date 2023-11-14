@@ -1,0 +1,7 @@
+# @package _global_
+model:
+  _target_: src.models.EncoderOnlyFromPretrained
+  config_cls: transformers.XLMRobertaConfig
+  encoder_cls: transformers.models.xlm_roberta.modeling_xlm_roberta.XLMRobertaEncoder
+  pretrained_dir: ???
+  num_classes: 256

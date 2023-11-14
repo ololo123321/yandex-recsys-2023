@@ -1,0 +1,10 @@
+# @package _global_
+trainer_cls:
+  _target_: hydra.utils.get_class
+  path: src.trainers.TrainerV5
+
+trainer_params:
+  gamma_neg: 2
+  gamma_pos: 0
+  clip: 0.2
+  reduction: mean

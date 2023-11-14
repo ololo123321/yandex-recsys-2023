@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - encoder_config_default@model.config
+
+model:
+  _target_: src.models_custom.TransformerEncoderCustomV2
+  config:
+    _target_: transformers.DebertaConfig
+    # The range of relative positions `[-max_position_embeddings, max_position_embeddings]`.
+    # Use the same value as `max_position_embeddings`
+    max_relative_positions: 512
+    pos_att_type: [c2p, p2c]
+  input_dim: 768
+  num_classes: 256

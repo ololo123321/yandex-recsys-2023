@@ -1,0 +1,18 @@
+# @package _global_
+defaults:
+  - encoder_config_default@model.config_params
+  - encoder_only_default@model
+
+model:
+  encoder_cls:
+    _target_: hydra.utils.get_class
+    path: transformers.models.wav2vec2_conformer.modeling_wav2vec2_conformer.Wav2Vec2ConformerEncoder
+  config_cls:
+    _target_: hydra.utils.get_class
+    path: transformers.Wav2Vec2ConformerConfig
+  config_params:
+    hidden_dropout: 0.1
+    attention_dropout: 0.1
+    conv_depthwise_kernel_size: 31
+    position_embeddings_type: relative
+  extend_attn_mask: false

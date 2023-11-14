@@ -1,0 +1,13 @@
+# @package _global_
+defaults:
+  - encoder_config_default@model.config
+
+model:
+  _target_: src.models_custom.TransformerEncoderCustomV9
+  config:
+    _target_: transformers.BertConfig
+  input_dim: 768
+  num_classes: 256
+  position_embedding_type: null  # {null, absolute, relative_key, relative_key_query}
+  window: 16
+  num_decoder_layers: 1

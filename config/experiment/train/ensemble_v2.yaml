@@ -1,0 +1,6 @@
+# @package _global_
+model:
+  _target_: src.ensembles.EnsembleV2
+  checkpoint_paths: ???
+  dropout: 0.2
+  num_classes: 256

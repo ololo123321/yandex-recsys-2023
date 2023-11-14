@@ -1,0 +1,8 @@
+# @package _global_
+model:
+  _target_: src.ensembles.EnsembleV1
+  checkpoint_paths: ???
+  input_dim: 768
+  hidden_dim: 512
+  dropout: 0.1
+  num_classes: 256

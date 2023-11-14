@@ -1,0 +1,13 @@
+# @package _global_
+model:
+  _target_: src.conformer_torchaudio.Conformer
+  input_dim: 768
+  hidden_dim: 256
+  num_heads: 8
+  ffn_dim: 1024
+  num_layers: 6
+  depthwise_conv_kernel_size: 31  # обязан быть нечётным
+  dropout: 0.1
+  num_classes: 256
+  use_group_norm: false
+  convolution_first: false

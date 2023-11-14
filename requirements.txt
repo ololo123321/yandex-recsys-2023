@@ -1,0 +1,6 @@
+transformers==4.27.4
+torch==2.0.0+cu117
+numpy==1.25.0
+pandas==2.1.0
+sklearn
+tqdm

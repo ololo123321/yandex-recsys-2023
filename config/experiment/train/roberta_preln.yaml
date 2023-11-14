@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - train/encoder_config_default@model.config_params
+  - train/encoder_only_default@model
+
+model:
+  encoder_cls:
+    _target_: hydra.utils.get_class
+    path: transformers.models.roberta_prelayernorm.modeling_roberta_prelayernorm.RobertaPreLayerNormEncoder
+  config_cls:
+    _target_: hydra.utils.get_class
+    path: transformers.RobertaPreLayerNormConfig

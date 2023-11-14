@@ -1,0 +1,19 @@
+# @package _global_
+trainer_cls:
+  _target_: hydra.utils.get_class
+  path: src.trainers.TrainerCustom
+
+trainer_params:
+  gamma: 1.0
+  alpha: -1.0
+  max_epochs_wo_improvement: 20
+  reduce_lr_patience: 5
+  reduce_lr_factor: 0.5
+  sampler: v1
+  loss_type: focal
+  gamma_neg: 4
+  gamma_pos: 1
+  clip: 0.05
+  reduction: mean
+  use_dataloader: false
+  legacy_optimizer: true

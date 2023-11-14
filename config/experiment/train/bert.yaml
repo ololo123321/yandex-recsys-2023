@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - train/encoder_config_default@model.config_params
+
+model:
+  _target_: src.models.EncoderOnly
+  encoder_cls: transformers.models.bert.modeling_bert.BertEncoder
+  config_cls: transformers.BertConfig
+  num_classes: 256

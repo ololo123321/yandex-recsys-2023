@@ -1,0 +1,8 @@
+# @package _global_
+trainer_cls:
+  _target_: hydra.utils.get_class
+  path: src.trainers.TrainerV3
+
+trainer_params:
+  class_freq_path: ???
+  train_num: 46134

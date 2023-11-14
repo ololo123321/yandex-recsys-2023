@@ -1,0 +1,10 @@
+# @package _global_
+model:
+  _target_: src.models_custom.InceptionModel
+  num_blocks: 3
+  in_channels: 768
+  out_channels: 256
+  bottleneck_channels: 0
+  kernel_sizes: 31,17,9
+  use_residuals: true
+  num_classes: 256

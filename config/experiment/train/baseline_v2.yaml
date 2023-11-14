@@ -1,0 +1,7 @@
+# @package _global_
+model:
+  _target_: src.models.BaselineModelV2
+  hidden_dim: 768
+  dropout: 0.1
+  num_heads: 4
+  num_classes: 256
