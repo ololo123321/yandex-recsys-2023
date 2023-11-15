@@ -13,14 +13,15 @@ for model_dir in "${models_dir}"/fold1/*; do
   # iterate over splits
   for fold in 1 2 3; do
     echo "model: $name; fold: $fold"
-    output_dir_i="${output_dir}/fold$fold/${name}"
+    model_dir_i="$models_dir/fold$fold/$name"  # parent
+    output_dir_i="$output_dir/fold$fold/$name"  # child
     python "$root_dir/jobs/retrain.py" \
       train_data_path="$root_dir/splits/train_fold$fold.csv" \
       valid_data_path="$root_dir/splits/valid_fold$fold.csv" \
       embeddings_dir=$embeddings_dir \
-      hydra.run.dir="${output_dir_i}" \
-      training_args.output_dir="${output_dir_i}" \
-      ++model_dir="${model_dir}"
+      hydra.run.dir="$output_dir_i" \
+      training_args.output_dir="$output_dir_i" \
+      ++model_dir="$model_dir_i"
     echo "============================"
   done
 done
