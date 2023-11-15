@@ -1,5 +1,7 @@
 1st place solution in Yandex Cup 2023 - ML RecSys (audio classification).
 
+![](./leaderboard.png)
+
 Make final submission (inference of each model + blending):
 1. `pip install -r requirements.txt`
 2. Download and unpack [embeddings](https://disk.yandex.ru/d/k-tAIJBnWyo7tA)
