@@ -13,7 +13,7 @@ bash predict_ensemble.sh
 ```
 
 I have loaded two best submissions:
-* `ensembles/ensemble_v30.tsv` - public score: 0.3087, private score: 0.3128.
-* `ensembles/ensemble_v31.tsv` - public score: 0.3095, private score: 0.3120. Was selected as final.
+* `ensembles/ensemble_v30.tsv` - public score: 0.3095, private score: 0.3128.
+* `ensembles/ensemble_v31.tsv` - public score: 0.3087, private score: 0.3120. Was selected as final.
 
 Code for models selection: `src/beam_search.py`
