@@ -49,7 +49,7 @@ def main(args):
     with open(args.output_path, "w") as f:
         f.write("track,prediction\n")
         for i in tqdm.trange(len(tracks)):
-            f.write(str(tracks[i]) + "," + ",".join(map(str, y_pred[i])) + "\n")
+            f.write(str(tracks[i]) + "," + "\"" + ",".join(map(str, y_pred[i])) + "\"" + "\n")
 
 
 if __name__ == "__main__":
@@ -57,6 +57,6 @@ if __name__ == "__main__":
     parser.add_argument("--data_path")  # .csv file with track ids. has header
     parser.add_argument("--config_path")  # .tsv file. header=name step1 step2 step3 weight
     parser.add_argument("--predictions_dir")  # .npz files with keys "tracks", "probs" grouped by fold
-    parser.add_argument("--output_path")
+    parser.add_argument("--output_path")  # .csv file with header "track,prediction" header
     args_ = parser.parse_args()
     main(args_)
