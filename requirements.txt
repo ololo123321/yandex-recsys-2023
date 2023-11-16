@@ -1,5 +1,7 @@
 transformers==4.27.4
 torch==2.0.0+cu117
+hydra-core==1.1.1
+omegaconf==2.1.1
 numpy==1.25.0
 pandas==2.1.0
 sklearn
