@@ -4,5 +4,5 @@ hydra-core==1.1.1
 omegaconf==2.1.1
 numpy==1.25.0
 pandas==2.1.0
-sklearn
+scikit-learn
 tqdm
